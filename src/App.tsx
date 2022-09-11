@@ -1,9 +1,14 @@
 import React from "react"
-
-import "./App.css"
+import Navbar from "./components/Navbar"
+import News from "./components/News"
 
 function App() {
-  return <div className="App"></div>
+  return (
+    <div>
+      <Navbar />
+      <News />
+    </div>
+  )
 }
 
 export default App
