@@ -4,10 +4,10 @@ import News from "./components/News"
 
 function App() {
   return (
-    <div>
+    <>
       <Navbar />
       <News />
-    </div>
+    </>
   )
 }
 
