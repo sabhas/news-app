@@ -22,7 +22,7 @@ const News = () => {
       <Loading />
       <div className="row">
         {articles.map((items: any, id: number) => (
-          <div className="col-md-4" key={items.url}>
+          <div className="col-sm-12 col-md-6 col-lg-4" key={items.url}>
             <NewsItem
               title={items.title.slice(0, 45) + ".."}
               description={items.description?.slice(0, 85) + "..."}
