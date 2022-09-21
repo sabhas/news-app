@@ -1,8 +1,10 @@
 import { useEffect, useState, useContext } from "react"
 import Container from "react-bootstrap/Container"
 import Pagination from "@mui/material/Pagination"
+import Breadcrumbs from "@mui/material/Breadcrumbs"
 import NewsItem from "./NewsItem"
 import Loading from "./Loading"
+import StyledBreadcrumb from "./StyledBreadcrumbs"
 import { AppContext } from "../context/appContext"
 import { getCommaSeparatedString } from "../utils/helper"
 
@@ -46,6 +48,17 @@ const News = () => {
       <h3 className="text-center" style={{ marginTop: "55px" }}>
         Top Headlines
       </h3>
+
+      <Breadcrumbs aria-label="breadcrumb">
+        {!category && selectedSources.length === 0 && country && (
+          <StyledBreadcrumb label={country.name} />
+        )}
+        {category && <StyledBreadcrumb label={category} />}
+        {selectedSources.map((source) => (
+          <StyledBreadcrumb key={source.id} label={source.name} />
+        ))}
+      </Breadcrumbs>
+
       {isLoading ? (
         <Loading />
       ) : (
