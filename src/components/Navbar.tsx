@@ -65,6 +65,13 @@ const Bar = () => {
     }
   }
 
+  const handleAllSourcesCheckbox = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    if (event.target.checked) setSelectedSources([...sources])
+    else setSelectedSources([])
+  }
+
   return (
     <>
       <AppBar
@@ -240,6 +247,19 @@ const Bar = () => {
         open={!!anchorElSources}
         onClose={() => setAnchorElSources(null)}
       >
+        <MenuItem dense divider>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={sources.every((source) =>
+                  selectedSources.includes(source)
+                )}
+                onChange={handleAllSourcesCheckbox}
+              />
+            }
+            label="Select All"
+          />
+        </MenuItem>
         {sources.map((source) => (
           <MenuItem key={source.id}>
             <FormControlLabel

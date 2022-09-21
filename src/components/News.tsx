@@ -43,7 +43,9 @@ const News = () => {
 
   return (
     <Container>
-      <h3 className="text-center">Top Headlines</h3>
+      <h3 className="text-center" style={{ marginTop: "55px" }}>
+        Top Headlines
+      </h3>
       {isLoading ? (
         <Loading />
       ) : (
@@ -62,7 +64,7 @@ const News = () => {
       )}
 
       <Pagination
-        sx={{ display: "flex", justifyContent: "center", marginBottom: "15px" }}
+        sx={{ display: "flex", justifyContent: "center", margin: "15px 0" }}
         count={Math.floor(totalArticles / PAGE_SIZE)}
         onChange={(e, val) => setPage(val)}
         variant="outlined"
